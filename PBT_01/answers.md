@@ -100,7 +100,7 @@ Lỗi 12: Dòng 41 - footer không đóng `</p>` và `</footer>`
 
 ![alt text](./screenshots/B4_4.png)
 
-thẻ này không dùng đúng semantic, nên sử dụng 1 section để hiển thị 1 sản phẩm
+thẻ này không dùng đúng semantic, nên sử dụng thẻ `<article>` để hiển thị 1 sản phẩm độc lập, thẻ cha là section
 
 2. Họ không sử dụng table
 
@@ -113,3 +113,12 @@ input type có text và submit
 # PHẦN C
 
 ## Bài C1
+![alt text](./screenshots/C1.png)
+
+## Bài C2
+Phản biện:
+Việc lạm dụng `<div>` cho mọi thứ thay vì học và sử dụng thêm semantic HTML5 là một cách cũng rất hay, dễ và nhanh nhưng không tối ưu và gây ảnh hưởng lớn tới vấn đề bảo trì lâu dài.
+Đầu tiên, về SEO, các công cụ tìm kiếm như GOOGLE tìm kiếm dựa vào các semantic, nên nếu dùng thẻ `<div>`, bot tìm kiếm đó khó đọc khó hiểu và khó phân tích, ảnh hưởng đến khả năng tìm kiếm.
+Thứ hai, về Accessibility (khả năng truy cập), semantic hỗ trợ tốt hơn cho chức năng "screen readers" (trình đọc màn hình) dành cho những người bị khó khăn về thị lực. Làm chuẩn semantic giúp họ có thể dùng được trang web một cách dễ dàng thuận tiện hơn.
+Ví dụ thực tế về semantic: Khi dùng thẻ `<button>`, trình duyệt mặc định hỗ trợ nhấn phím Enter và Space, rất nhanh và tiện dụng. Nhưng nếu sử dụng div thì sẽ phải viết thêm các đoạn mã Javascript và những cái khác để tạo ra tính năng đó, rất phức tạp.
+Nhưng trong 1 vài trường hợp cụ thể, sử dụng `<div>` vẫn rất là ổn như wrapper để chia grid hoặc flexbox.
