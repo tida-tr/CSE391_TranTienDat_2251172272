@@ -64,4 +64,3 @@ Tại sao không nên dùng `<table>` để tạo layout trang web?
 - Vi phạm nguyên tắc Semantic, vì thẻ này sinh ra để hiển thị dữ liệu dạng bảng chứ không phải chia layout
 - Tốc độ tải trang chậm vì phải tải hết cả cái bảng mới hiển thị nên nếu có nhiều dữ liệu thì nó rất lâu
 - Vì nó không phù hợp để chia layout...
-
