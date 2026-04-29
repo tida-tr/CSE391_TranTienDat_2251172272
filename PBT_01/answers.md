@@ -69,3 +69,33 @@ Tại sao không nên dùng `<table>` để tạo layout trang web?
 
 ## Bài B1
 ![alt text](./screenshots/B1_profile.png)
+
+## Bài B2
+![alt text](./screenshots/B2_products.png)
+
+## Bài B3
+Lỗi 1: Dòng 1 — <!DOCTYPE> sai — sửa thành `<!DOCTYPE html>`
+
+Lỗi 2: Thiếu lang trong `<html>` — thêm lang="vi"
+
+Lỗi 3: Dòng 4 - `<title>` không đóng — thêm `</title>`
+
+Lỗi 4: Dòng 5 - charset sai "utf8" — sửa thành "UTF-8"
+
+Lỗi 5: Dòng 8 - `<h1>` không đóng đúng — sửa `</h1>`
+
+Lỗi 6: Dòng 12 - `<a>` không đóng — sửa `</a>`
+
+Lỗi 7: Dòng 12 - href="home" sai — phải là / hoặc #home
+
+Lỗi 8: Dòng 18 - img thiếu dấu "" và alt — sửa src="iphone.jpg" alt="iPhone"
+
+Lỗi 9: Dòng 20 - thẻ `<b>` đóng sai vị trí — phải nằm trong `<p>`
+
+Lỗi 10: Dòng 25 - table thiếu thead/tbody, dùng `<td>` cho tiêu đề
+
+Lỗi 11: Dòng 36 - có 2 thẻ `<main>` — chỉ được 1
+
+Lỗi 12: Dòng 41 - footer không đóng `</p>` và `</footer>`
+
+![alt text](./screenshots/B3_debug.png)
