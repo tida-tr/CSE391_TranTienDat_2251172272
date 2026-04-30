@@ -68,3 +68,20 @@ Khôgn nên dùng khi: Ảnh ở ngay đầu trang, như logo hay banner
 
 Dùng `<img>` khi chỉ cần hiển thị ảnh, nhìn vào là hiểu như logo, icon, không cần giải thích thêm nó là gì
 Dùng `<figure>` khi muốn thể hiện chi tiết các thông tin bao gồm ảnh, chú thích, màu sắc,...
+
+# PHẦN B
+
+## Câu B1
+![alt text](./screenshots/B1.png)
+
+## Câu B2
+![alt text](./screenshots/B2.png)
+
+## Câu B3
+![alt text](./screenshots/B3.png)
+
+## Câu B4
+![alt text](./screenshots/B4.png)
+
+## Câu B5
+![alt text](./screenshots/B5.png)
