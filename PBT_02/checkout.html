@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+</head>
+
+<body>
+<h2>Giỏ hàng</h2>
+<table border="1">
+    <thead>
+        <tr>
+            <th>STT</th>
+            <th>Sản phẩm</th>
+            <th>Đơn giá</th>
+            <th>Số lượng</th>
+            <th>Thành tiền</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>Áo</td>
+            <td>10k</td>
+            <td>2</td>
+            <td>20k</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Quần</td>
+            <td>20k</td>
+            <td>1</td>
+            <td>20k</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Giày</td>
+            <td>30k</td>
+            <td>1</td>
+            <td>30k</td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="4">Tổng</td>
+            <td>70k</td>
+        </tr>
+    </tfoot>
+</table>
+
+<h2>Thanh toán</h2>
+<form>
+    <p>Phương thức:</p>
+    <input type="radio"> COD
+    <input type="radio"> Chuyển khoản
+    <input type="radio"> Ví điện tử<br><br>
+
+    <label for="coupon">Mã giảm giá:</label>
+    <input type="text" placeholder="SALE2026" pattern="SALE[0-9]{4}"><br><br>
+
+    <label>Ghi chú:</label>
+    <textarea></textarea><br><br>
+
+    <h3>Giao hàng</h3>
+    <label>Ngày giao:</label>
+    <input type="date" min="2026-05-01"><br><br>
+    <label>Khung giờ:</label>
+    <select>
+        <option>Sáng 8-12h</option>
+        <option>Chiều 14-18h</option>
+        <option>Tối 18-21h</option>
+    </select><br><br>
+
+    <label>Số ngày:</label>
+    <input type="range" min="1" max="7" step="1"><br><br>
+    
+    <button type="submit" aria-label="Xác nhận đặt hàng">Đặt hàng</button>
+</form>
+
+<h3>Tìm kiếm sản phẩm</h3>
+
+<label for="search">Tìm sản phẩm:</label>
+
+<input list="products" id="search" placeholder="Nhập tên sản phẩm">
+<datalist id="products">
+    <option value="Áo">
+    <option value="Quần">
+    <option value="Giày">
+    <option value="Mũ">
+    <option value="Túi xách">
+</datalist>
+
+<h3>Điểm tích lũy</h3>
+<meter value="36" min="0" max="100"></meter>
+<p>36/100 điểm</p>
+
+<h3>Tổng thanh toán</h3>
+<output id="total">70000 VND</output>
+
+</body>
+</html>

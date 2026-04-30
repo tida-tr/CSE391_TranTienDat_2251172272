@@ -79,9 +79,3 @@ Dùng `<figure>` khi muốn thể hiện chi tiết các thông tin bao gồm �
 
 ## Câu B3
 ![alt text](./screenshots/B3.png)
-
-## Câu B4
-![alt text](./screenshots/B4.png)
-
-## Câu B5
-![alt text](./screenshots/B5.png)
