@@ -1,0 +1,52 @@
+.hero {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 1rem;
+    background: var(--color-primary);
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    color: var(--color-light);
+    margin-bottom: 1rem;
+}
+
+.hero h1 span {
+    font-size: 3.5rem;
+    color: var(--color-name);
+    margin-bottom: 1rem;
+}
+
+
+.hero p {
+    font-size: 1.25rem;
+    font-weight: 200;
+    color: var(--color-light);
+    margin-bottom: 2rem;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 0.8rem 2.5rem;
+    background-color: var(--color-light);
+    color: var(--color-primary);
+    border-radius: 50px;
+    font-weight: 600;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cta-button:hover {
+    transform: scale(1.05) translateY(-2px);
+    box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
+    color: var(--color-primary);
+}
+
+@media (max-width: 767px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+}

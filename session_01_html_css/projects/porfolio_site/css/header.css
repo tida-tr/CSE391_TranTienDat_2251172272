@@ -33,7 +33,6 @@ nav a:hover {
     color: var(--color-primary);
 }
 
-/* Hover underline effect */
 nav a::after {
     content: '';
     position: absolute;
@@ -49,7 +48,6 @@ nav a:hover::after {
     width: 100%;
 }
 
-/* Mobile Menu Setup (Checkbox Hack) */
 .menu-toggle {
     display: none;
 }
@@ -69,7 +67,7 @@ nav a:hover::after {
     transition: all 0.3s ease;
 }
 
-/* Responsive - Breakpoint cho Mobile (< 768px) */
+/* Responsive */
 @media (max-width: 767px) {
     .hamburger {
         display: flex;
@@ -88,7 +86,6 @@ nav a:hover::after {
         box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
     }
 
-    /* Kích hoạt menu khi checkbox được checked */
     .menu-toggle:checked~nav {
         display: flex;
     }
