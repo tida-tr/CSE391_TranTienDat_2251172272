@@ -1,0 +1,21 @@
+.box {
+    width: 300px;
+    padding: 20px;
+    border: 5px solid #000;
+}
+
+.content-box {
+    box-sizing: content-box;
+}
+
+.border-box {
+    box-sizing: border-box;
+}
+
+.m-1 {
+    margin-bottom: 50px;
+}
+
+.m-2 {
+    margin-top: 20px;
+}
