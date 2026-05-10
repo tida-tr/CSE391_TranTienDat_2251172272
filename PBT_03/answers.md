@@ -157,3 +157,30 @@ Tổng cộng: 280 + 540 + 280 = 1100px. Vì 1100px > 1000px của container nê
 
 # PHẦN C
 
+## Câu C1
+
+1. Tính chiều rộng thực tế:
+- Sidebar: 300 + 40 padding + 2 border = 342px
+- Content: 660 + 60 padding + 2 border = 722px
+
+2. Layout bị vỡ vì tổng chiều rộng Sidebar và Content là 1064px. Khối Container chỉ rộng 960px, không chứa đủ 2 khối kia cùng 1 hàng nên khối Content bị đẩy xuống dưới
+
+3. Hai cách sửa
+Cách 1: dùng `border-box` cho cả hai
+Cách 2: tính lại width
+
+4.
+![alt text](./screenshots/C1_1.png)
+![alt text](./screenshots/C1_2.png)
+
+## Câu C2
+
+1. "Sản phẩm A" có `font-size: 20px;` và `color: green;` vì `font-size` ăn theo `.card.title`, `color` có màu green vì có `!important`
+
+2. "Mô tả sản phẩm" (p trong card featured) có `color:blue;` vì rule `.card p { color: inherit; }` thừa hưởng từ thẻ cha `.card` màu blue
+
+3. "Sản phẩm B" (h2) có `font-size: 20px;` và `color: blue;` vì `font-size` ăn theo `.card .title.`, còn `color` kế thừa từ thẻ cha `card` vì `h2` không có màu riêng.
+
+4. "Mô tả sản phẩm" (p.highlight) có `color: green;` vì rule `.highlight` có `!important`
+
+![alt text](./screenshots/C2.png)
