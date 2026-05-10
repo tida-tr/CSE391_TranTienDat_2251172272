@@ -114,3 +114,46 @@ Danh sách các Selector
 ![alt text](<./screenshots/B1.png>)
 
 ## Câu B2
+Phần 1:  
+- Hộp 1 (content-box): chiều rộng thực tế = 300px width + 40px padding + 10px border =  350px   
+- Hộp 2 (border-box): chiều rộng thực tế = 300px (Đúng bằng width đã khai báo).
+
+Giải thích sự khác biệt:  
+- Với content-box, mặc định thuộc tính width chỉ tính cho phần nội dung. Padding và Border sẽ cộng thêm vào ngoài width đó, làm kích thước hộp to lên.  
+- Với border-box, thuộc tính width bao gồm cả nội dung, padding và border. Trình duyệt sẽ tự động co phần nội dung lại để tổng chiều rộng luôn bằng giá trị khai báo.
+
+![alt text](./screenshots/B2_P1_1.png)
+![alt text](./screenshots/B2_P1_2.png)
+
+Phần 2:
+Nếu không dùng border-box:
+- Cột trái: 250 + 15*2 = 280px.
+- Cột giữa: 500 + 20*2 = 540px.
+- Cột phải: 250 + 15*2 = 280px.
+Tổng cộng: 280 + 540 + 280 = 1100px. Vì 1100px > 1000px của container nên các cột sẽ bị đẩy xuống dòng.
+
+![alt text](./screenshots/B2_P2_1.png)
+![alt text](./screenshots/B2_P2_2.png)
+
+## Câu B3
+1. 10 rules + specificity score
+- Rule 1: * -> (0, 0, 0) 
+- Rule 2: p -> (0, 0, 1) 
+- Rule 3: body p -> (0, 0, 2)
+- Rule 4: .text -> (0, 1, 0)
+- Rule 5: .text.highlight -> (0, 2, 0)
+- Rule 6: p.text.highlight -> (0, 2, 1)
+- Rule 7: #demo -> (1, 0, 0)
+- Rule 8: p#demo -> (1, 0, 1)
+- Rule 9: #demo.text -> (1, 1, 0)
+- Rule 10: p#demo.text.highlight -> (1, 2, 1)
+
+2. Element cuối cùng hiển thị màu Rule 10: violet (tím). Vì rule 10 có điểm Specificity cao nhất
+
+3.
+![alt text](./screenshots/B3.png)
+
+4. Thay đổi thứ tứ Rule thì kết quả vẫn không thay đổi, thứ tự trong CSS chỉ có tác dụng khi nhiều Rule có cùng mức Specificity.
+
+# PHẦN C
+

@@ -1,0 +1,39 @@
+* {
+    color: gray;
+}
+
+p {
+    color: silver;
+}
+
+body p {
+    color: maroon;
+}
+
+.text {
+    color: red;
+}
+
+.text.highlight {
+    color: orange;
+}
+
+p.text.highlight {
+    color: yellow;
+}
+
+#demo {
+    color: green;
+}
+
+p#demo {
+    color: blue;
+}
+
+#demo.text {
+    color: indigo;
+}
+
+p#demo.text.highlight {
+    color: violet;
+}
