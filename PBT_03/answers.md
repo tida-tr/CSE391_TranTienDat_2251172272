@@ -100,3 +100,17 @@ Nếu thêm style="color: orange;": Element có màu cam. Vì Inline style ưu t
 
 4. Nếu Rule A thêm !important: Element có màu đen.
 Vì !important nó được ưu tiên hơn cả những ưu tiên thông thường, ép trình duyệt áp dụng thuộc tính đó
+
+# PHẦN B
+
+## Câu B1
+Danh sách các Selector
+1. Element Selector: `body`, `header`, `footer`, `table`.
+2. Class Selector: `.active`.
+3. ID Selector: `#about`, `#skills`, `#contact`.
+4. Descendant Selector: `nav a`, `thead tr`, `nav ul`.
+5. Pseudo-class Selector: `:hover` (cho link và hàng trong bảng), `:nth-child(even)` (để làm hàng kẻ sọc cho bảng).
+
+![alt text](<./screenshots/B1.png>)
+
+## Câu B2
