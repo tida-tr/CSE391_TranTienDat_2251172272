@@ -52,3 +52,9 @@
 .skill-progress.animate {
     width: var(--progress-width);
 }
+
+@media (max-width: 768px) {
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+}
