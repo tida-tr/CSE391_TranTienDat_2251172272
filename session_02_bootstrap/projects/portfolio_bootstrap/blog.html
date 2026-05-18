@@ -14,7 +14,7 @@
 </head>
 <body class="bg-light">
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow-sm">
             <div class="container">
                 <a class="navbar-brand fw-bold text-uppercase" href="index.html">tidaTr</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
@@ -33,7 +33,7 @@
         </nav>
     </header>
 
-    <section class="blog-header bg-dark text-white py-5">
+    <section class="blog-header bg-dark text-white pb-5" style="padding-top: 100px;">
         <div class="container mt-4">
             <div class="row align-items-center">
                 <div class="col-lg-8">
@@ -59,7 +59,6 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
-                    
                     <article class="featured-post mb-5">
                         <div class="card border-0 shadow-sm overflow-hidden">
                             <div class="row g-0">
@@ -158,8 +157,102 @@
                     </nav>
                 </div>
 
-                <div class="col-lg-4" id="sidebar-container">
+                <div class="col-lg-4">
+                    <div class="sticky-top" style="top: 100px; z-index: 1;">
+                        
+                        <div class="sidebar-widget mb-4">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Search articles...">
+                                <button class="btn btn-primary" type="button" aria-label="Search">
+                                    <i class="bi bi-search"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="sidebar-widget bg-light rounded-3 p-4 mb-4 shadow-sm">
+                            <h5 class="fw-bold mb-3">
+                                <i class="bi bi-folder me-2 text-primary"></i>Categories
+                            </h5>
+                            <ul class="list-unstyled mb-0">
+                                <li class="mb-2">
+                                    <a href="#" class="text-decoration-none d-flex justify-content-between align-items-center p-2 rounded hover-bg">
+                                        <span>JavaScript</span>
+                                        <span class="badge bg-primary rounded-pill">8</span>
+                                    </a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="#" class="text-decoration-none d-flex justify-content-between align-items-center p-2 rounded hover-bg">
+                                        <span>React</span>
+                                        <span class="badge bg-info rounded-pill">5</span>
+                                    </a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="#" class="text-decoration-none d-flex justify-content-between align-items-center p-2 rounded hover-bg">
+                                        <span>Node.js</span>
+                                        <span class="badge bg-success rounded-pill">4</span>
+                                    </a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="#" class="text-decoration-none d-flex justify-content-between align-items-center p-2 rounded hover-bg">
+                                        <span>CSS</span>
+                                        <span class="badge bg-warning text-dark rounded-pill">3</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="text-decoration-none d-flex justify-content-between align-items-center p-2 rounded hover-bg">
+                                        <span>DevOps</span>
+                                        <span class="badge bg-secondary rounded-pill">2</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="sidebar-widget mb-4 bg-light rounded-3 p-4 shadow-sm">
+                            <h5 class="fw-bold mb-3">
+                                <i class="bi bi-fire me-2 text-danger"></i>Popular Posts
+                            </h5>
+                            <div class="popular-posts">
+                                <a href="#" class="popular-post d-flex gap-3 mb-3 text-decoration-none">
+                                    <img src="https://picsum.photos/80/80?random=35" alt="Post" class="rounded-3 flex-shrink-0" width="70" height="70">
+                                    <div>
+                                        <h6 class="mb-1 text-dark">The Future of JavaScript</h6>
+                                        <small class="text-muted">Dec 15, 2024</small>
+                                    </div>
+                                </a>
+                                <a href="#" class="popular-post d-flex gap-3 mb-3 text-decoration-none">
+                                    <img src="https://picsum.photos/80/80?random=36" alt="Post" class="rounded-3 flex-shrink-0" width="70" height="70">
+                                    <div>
+                                        <h6 class="mb-1 text-dark">Building Scalable React Apps</h6>
+                                        <small class="text-muted">Dec 10, 2024</small>
+                                    </div>
+                                </a>
+                                <a href="#" class="popular-post d-flex gap-3 text-decoration-none">
+                                    <img src="https://picsum.photos/80/80?random=37" alt="Post" class="rounded-3 flex-shrink-0" width="70" height="70">
+                                    <div>
+                                        <h6 class="mb-1 text-dark">Node.js Performance Tips</h6>
+                                        <small class="text-muted">Dec 8, 2024</small>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="sidebar-widget bg-light rounded-3 p-4 shadow-sm">
+                            <h5 class="fw-bold mb-3">
+                                <i class="bi bi-tags me-2 text-success"></i>Tags
+                            </h5>
+                            <div class="d-flex flex-wrap gap-2">
+                                <a href="#" class="badge bg-secondary text-white text-decoration-none py-2 px-3">JavaScript</a>
+                                <a href="#" class="badge bg-secondary text-white text-decoration-none py-2 px-3">React</a>
+                                <a href="#" class="badge bg-secondary text-white text-decoration-none py-2 px-3">Node.js</a>
+                                <a href="#" class="badge bg-secondary text-white text-decoration-none py-2 px-3">CSS</a>
+                                <a href="#" class="badge bg-secondary text-white text-decoration-none py-2 px-3">Bootstrap</a>
+                                <a href="#" class="badge bg-secondary text-white text-decoration-none py-2 px-3">Git</a>
+                                <a href="#" class="badge bg-secondary text-white text-decoration-none py-2 px-3">DevOps</a>
+                            </div>
+                        </div>
+
                     </div>
+                </div>
             </div>
         </div>
     </section>
