@@ -60,7 +60,6 @@
 @media (max-width: 768px) {
     .footer-content {
         grid-template-columns: 1fr;
-        /* Single column on mobile */
         text-align: center;
         gap: 2rem;
     }
