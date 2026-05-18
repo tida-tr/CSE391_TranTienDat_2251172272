@@ -258,6 +258,44 @@
         </div>
     </section>
 
+    <section class="py-5 bg-light" id="comments">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="card mb-4 border-0 shadow-sm">
+                        <div class="card-header bg-white py-3">
+                            <h5 class="mb-0 fw-bold"><i class="bi bi-chat-left-text me-2 text-primary"></i>Leave a Comment</h5>
+                        </div>
+                        <div class="card-body p-4">
+                            <form id="commentForm">
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="name" class="form-label fw-semibold">Name</label>
+                                        <input type="text" class="form-control" id="name" placeholder="John Doe" required>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="email" class="form-label fw-semibold">Email</label>
+                                        <input type="email" class="form-control" id="email" placeholder="john@example.com" required>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="comment" class="form-label fw-semibold">Comment</label>
+                                    <textarea class="form-control" id="comment" rows="4" placeholder="Share your thoughts..." required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary px-4">Post Comment</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div id="comments-list-placeholder"></div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white py-4 mt-auto">
+
     <footer class="bg-dark text-white py-4 mt-auto">
         <div class="container text-center">
             <p class="mb-0 small opacity-75">&copy; 2026 tidaTr. All rights reserved.</p>
