@@ -1,21 +1,27 @@
 :root {
-    --color-primary: #6366f1;
-    --color-secondary: #8b5cf6;
-    --color-dark: #1e293b;
-    --color-light: #f8fafc;
-    --color-text: #334155;
+    /* --- 1. OVERRIDE BOOTSTRAP PRIMARY COLOR (Màu Mint nhạt/Pastel) --- */
+    --bs-primary: #34d399;
+    --bs-primary-rgb: 52, 211, 153;
+    
+    --color-primary: #34d399;
+    --color-secondary: #60a5fa;
+
+    /* --- 2. NEW COLOR PALETTE (Nền trắng chuẩn, Chữ đen sẫm) --- */
+    --color-dark: #0f172a;
+    --color-light: #ffffff;
+    --color-text: #1e293b;
     --color-name: #ffcc00;
     --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
-    --bg-primary: #ffffff;
-    --bg-secondary: #f8fafc;
+    --bg-primary: #ffffff;       /* Nền trắng tuyệt đối */
+    --bg-secondary: #f8fafc;     /* Nền phụ trắng nhạt/xám thanh lịch */
     --bg-tertiary: #f1f5f9;
-    --text-primary: var(--color-text);
-    --text-muted: #94a3b8;
+    --text-primary: #1e293b;     /* Chữ đen sẫm dễ đọc */
+    --text-muted: #64748b;
 
     --accent-color: var(--color-primary);
-    --accent-hover: #4f46e5;
-    --accent-light: rgba(99, 102, 241, 0.1);
+    --accent-hover: #059669;     /* Mint đậm hơn chút khi hover để rõ ràng */
+    --accent-light: rgba(52, 211, 153, 0.1);
 
     --border-color: #e2e8f0;
     --card-bg: #ffffff;
@@ -31,6 +37,13 @@
 
     --transition-fast: 0.15s ease;
     --transition-normal: 0.3s ease;
+
+    /* --- 3. CUSTOM SPACING SCALE --- */
+    --space-sm: 0.5rem;
+    --space-md: 1.5rem;
+    --space-lg: 3rem;
+    --space-xl: 5rem;
+    --space-xxl: 8rem;
 }
 
 * {
@@ -44,7 +57,7 @@ html {
 }
 
 body {
-    background-color: var(--bg-primary);
+    background-color: var(--bg-primary) !important;
     color: var(--text-primary);
     font-family: var(--font-main);
     line-height: 1.6;
@@ -61,6 +74,54 @@ a:hover {
     color: var(--accent-hover);
 }
 
+/* =========================================
+   ÉP BOOTSTRAP NHẬN MÀU MỚI
+   ========================================= */
+.text-primary { color: var(--bs-primary) !important; }
+.bg-primary { background-color: var(--bs-primary) !important; }
+
+.btn-primary { 
+    background-color: var(--bs-primary); 
+    border-color: var(--bs-primary); 
+    color: #ffffff;
+    font-weight: 500;
+}
+.btn-primary:hover { 
+    background-color: var(--accent-hover); 
+    border-color: var(--accent-hover); 
+    color: #ffffff;
+}
+.btn-outline-primary {
+    color: var(--bs-primary);
+    border-color: var(--bs-primary);
+}
+.btn-outline-primary:hover {
+    background-color: var(--bs-primary);
+    color: #ffffff;
+}
+
+/* Ghi đè background dark/light của Bootstrap */
+.bg-dark {
+    background-color: var(--color-dark) !important;
+}
+.bg-light {
+    background-color: var(--bg-secondary) !important;
+}
+
+/* =========================================
+   UTILITY SPACING CỦA RIÊNG BẠN
+   ========================================= */
+.py-huge {
+    padding-top: var(--space-xxl) !important;
+    padding-bottom: var(--space-xxl) !important;
+}
+.mb-super {
+    margin-bottom: var(--space-xl) !important;
+}
+
+/* =========================================
+   LIGHTBOX
+   ========================================= */
 .lightbox {
     display: none;
     position: fixed;
