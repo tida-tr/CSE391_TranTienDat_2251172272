@@ -110,3 +110,11 @@ nav {
 - Giải pháp/Bước chuyển đổi: Cần chạy qua một bước gọi là Biên dịch (Compile). Lập trình viên sử dụng các công cụ như extension Live Sass Compiler trên VS Code, hoặc các thư viện Node-Sass/Dart-Sass để dịch toàn bộ mã từ file `.scss` thành file `.css` thuần. Sau đó, nhúng file `.css` đã biên dịch này vào file HTML qua thẻ `<link>`.
 
 # PHẦN B
+
+## CÂU B1
+
+![alt text](./screenshots/B1_1.png)
+
+![alt text](./screenshots/B1_2.png)
+
+![alt text](./screenshots/B1_3.png)
