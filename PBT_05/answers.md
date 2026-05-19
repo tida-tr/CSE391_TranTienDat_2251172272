@@ -118,3 +118,19 @@ nav {
 ![alt text](./screenshots/B1_2.png)
 
 ![alt text](./screenshots/B1_3.png)
+
+## CÂU B2
+
+![alt text](./screenshots/B2_1.png)
+
+![alt text](./screenshots/B2_2.png)
+
+## CÂU B3
+
+### Lệnh biên dịch SCSS sang CSS
+```scss
+Để biên dịch file `style.scss` trong thư mục `scss` ra file `style.css` ở thư mục gốc, sử dụng lệnh sau (yêu cầu đã cài đặt Dart Sass hoặc Node Sass):
+
+```bash
+sass scss/style.scss style.css
+```

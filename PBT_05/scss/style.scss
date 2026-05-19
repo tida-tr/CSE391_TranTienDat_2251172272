@@ -1,0 +1,48 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+@use 'components' as *;
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: $font-primary;
+    background-color: $bg-body;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.layout-container {
+    display: flex;
+    flex-direction: column;
+    padding: $spacing-md;
+    gap: $spacing-md;
+    flex: 1;
+
+    @include respond-to('desktop') {
+        flex-direction: row;
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-md;
+    width: 100%;
+
+    @include respond-to('tablet') {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include respond-to('desktop') {
+        grid-template-columns: repeat(4, 1fr);
+        flex-grow: 1;
+    }
+}

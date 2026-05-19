@@ -1,0 +1,101 @@
+@use 'sass:color';
+@use 'variables' as *;
+@use 'mixins' as *;
+
+header {
+    background-color: $secondary-color;
+    color: $bg-white;
+    padding: $spacing-md;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+
+    .logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+    nav {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        margin-top: $spacing-md;
+
+        a {
+            color: $bg-white;
+            text-decoration: none;
+            padding: 0.8rem 0;
+            /* Dùng hàm color.adjust chuẩn mới */
+            border-bottom: 1px solid color.adjust($secondary-color, $lightness: 10%);
+
+            &:hover {
+                color: $primary-color;
+            }
+        }
+
+        @include respond-to('tablet') {
+            display: flex;
+            width: auto;
+            flex-direction: row;
+            margin-top: 0;
+
+            a {
+                padding: 0 1rem;
+                border-bottom: none;
+            }
+        }
+    }
+}
+
+.card {
+    background: $bg-white;
+    padding: $spacing-md;
+    border-radius: 8px;
+    text-align: center;
+    @include card-shadow;
+
+    .card-image {
+        overflow: hidden;
+        border-radius: 8px 8px 0 0;
+
+        img {
+            width: 100%;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+    }
+
+    .card-title {
+        margin: $spacing-md 0 8px;
+        font-size: 1.2em;
+        color: $secondary-color;
+    }
+
+    .card-price {
+        color: $accent-color;
+        font-weight: bold;
+        margin-bottom: $spacing-md;
+    }
+
+    /* Parent selector & */
+    &:hover .card-image img {
+        transform: scale(1.1);
+    }
+
+    button {
+        @include flex-center;
+        background-color: $primary-color;
+        color: $bg-white;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 100%;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+            background-color: color.adjust($primary-color, $lightness: -10%);
+        }
+    }
+}
