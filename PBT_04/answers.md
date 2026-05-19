@@ -103,3 +103,11 @@ Dự đoán Layout
 ![alt text](./screenshots/A2_5.png)
 
 # PHAN B
+
+## Câu B1
+
+![alt text](./screenshots/B1_2.png)
+
+![alt text](./screenshots/B1_1.png)
+
+![alt text](./screenshots/B1_3.png)

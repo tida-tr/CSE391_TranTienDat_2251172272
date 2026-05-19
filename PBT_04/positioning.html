@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Positioning Playground</title>
+    <link rel="stylesheet" href="positioning.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo">MyLogo</div>
+        <nav class="nav">
+            <a href="#">Home</a>
+            <a href="#">Products</a>
+            <a href="#">About</a>
+        </nav>
+    </header>
+
+    <div class="main-container">
+        
+        <aside class="sidebar">
+            <h3>Sidebar Menu</h3>
+            <ul>
+                <li><a href="#">Category 1</a></li>
+                <li><a href="#">Category 2</a></li>
+                <li><a href="#">Category 3</a></li>
+                <li><a href="#">Category 4</a></li>
+            </ul>
+        </aside>
+
+        <main class="content">
+            <h2>Danh sách sản phẩm</h2>
+            
+            <div class="product-grid">
+                <div class="product-card">
+                    <span class="badge-hot">HOT</span>
+                    <div class="product-img"></div>
+                    <div class="product-info">
+                        <h4>Sản phẩm đặc biệt 1</h4>
+                        <p>Giá: 500.000đ</p>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-img"></div>
+                    <div class="product-info">
+                        <h4>Sản phẩm thông thường 2</h4>
+                        <p>Giá: 300.000đ</p>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-img"></div>
+                    <div class="product-info">
+                        <h4>Sản phẩm thông thường 3</h4>
+                        <p>Giá: 250.000đ</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="scroll-spacer">
+                <p>Cuộn xuống tiếp để kiểm tra Fixed Header, Sticky Sidebar và Scroll to top button</p>
+            </div>
+        </main>
+    </div>
+
+    <button class="scroll-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
+        ↑
+    </button>
+
+</body>
+</html>
