@@ -111,3 +111,11 @@ Dự đoán Layout
 ![alt text](./screenshots/B1_1.png)
 
 ![alt text](./screenshots/B1_3.png)
+
+## Câu B2
+
+![alt text](./screenshots/B2_1.png)
+
+![alt text](./screenshots/B2_2.png)
+
+![alt text](./screenshots/B2_3.png)
