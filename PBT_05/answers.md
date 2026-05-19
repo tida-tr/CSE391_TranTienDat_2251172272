@@ -134,3 +134,150 @@ nav {
 ```bash
 sass scss/style.scss style.css
 ```
+
+# PHẦN C
+
+## Câu C1 (10đ) — Phân tích trang web thực tế: Shopee (shopee.vn)
+
+**1. Hình ảnh hiển thị trên 3 kích thước màn hình**
+
+* **Mobile (375px):**  
+  ![Shopee Mobile 375px](./screenshots/C1_1.png)  
+* **Tablet (768px):**  
+  ![Shopee Tablet 768px](./screenshots/C1_2.png)  
+* **Desktop (1440px):**  
+  ![Shopee Desktop 1440px](./screenshots/C1_3.png)  
+
+
+**2. Phân tích chi tiết sự thay đổi giao diện**
+
+* **Navigation (Điều hướng) thay đổi thế nào?**
+  * Desktop (1440px): Thanh header rất rộng, hiển thị đầy đủ thanh tìm kiếm lớn, giỏ hàng, và một loạt các text links điều hướng phụ (Kênh Người Bán, Tải ứng dụng, Kết nối, Thông báo...).
+  * Tablet (768px): Header bắt đầu thu gọn lại, khoảng cách giữa các element hẹp hơn. Một số link text phụ trên cùng có thể bị ẩn đi để nhường chỗ cho thanh tìm kiếm.
+  * Mobile (375px): Thay đổi hoàn toàn (thường chuyển hướng sang giao diện web-app mobile). Khung tìm kiếm bị thu ngắn tối đa. Xuất hiện Bottom Navigation Bar (Thanh điều hướng dưới đáy màn hình) chứa các icon chính (Home, Mall, Live, Tôi) thay thế cho thanh menu ngang phía trên. Không dùng hamburger menu truyền thống mà dùng icon trực quan.
+
+* **Lưới content (Product Grid) thay đổi mấy cột?**
+  * Desktop (1440px): Lưới sản phẩm (Gợi ý hôm nay) dàn trải thành 6 cột (width khoảng 16.66%).
+  * Tablet (768px): Lưới sản phẩm co lại còn khoảng 3 - 4 cột để đảm bảo thẻ sản phẩm không bị quá nhỏ.
+  * Mobile (375px): Lưới sản phẩm thu về 2 cột (width 50%), hình ảnh sản phẩm chiếm trọn chiều ngang của cột để tối ưu điểm chạm (touch target) cho ngón tay.
+
+* **Elements nào bị ẩn (Hidden) trên mobile?**
+  * Banner quảng cáo dạng carousel rộng ở trang chủ bị thu nhỏ tỉ lệ hoặc thay bằng banner dọc.
+  * Danh mục sản phẩm (Categories) dạng lưới icon lớn trên Desktop bị ẩn hoặc chuyển thành dạng thanh cuộn ngang (horizontal scroll) gạt bằng tay.
+  * Toàn bộ phần Footer chứa các cột links (Chăm sóc khách hàng, Về Shopee, Thanh toán, Vận chuyển...) thường bị ẩn gọn vào trong các thẻ Accordion (nhấn vào dấu `+` hoặc `v` mới xổ ra) để tiết kiệm không gian chiều dọc.
+  * Các mã QR code tải app bị ẩn hoàn toàn (vì đang dùng trên mobile rồi).
+
+* **Font size có thay đổi không?**
+  * Có thay đổi đáng kể. Trên Desktop, Shopee sử dụng font chữ tương đối nhỏ (12px - 14px) để nhồi nhét được nhiều thông tin, mô tả, nhãn dán. 
+  * Khi xuống Mobile, font size gốc (`html`, `body`) thường được giữ nguyên hoặc tăng nhẹ, nhưng các thẻ Heading (`h1`, `h2`) sẽ bị giảm kích thước xuống để không bị rớt dòng. Chữ ở tên sản phẩm trên Mobile (2 cột) thực tế nhìn sẽ to và rõ ràng hơn so với tổng thể diện tích màn hình so với Desktop.
+
+**3. Media Queries thực tế trên DevTools**
+
+Không thể tìm thấy `@media` trên trang shopee.vn
+
+
+## Câu C2
+
+### 1. Phân tích & Wireframe (Sơ đồ bố cục)
+
+Dưới đây là sơ đồ bố cục (Wireframe) mô phỏng dạng text và chiến lược Responsive cho từng kích thước thiết bị:
+
+**Mobile (< 768px)**
+* **Sơ đồ:**
+    ```text
+    [ HEADER: Logo | Icon Gọi điện ]
+    [ HERO IMAGE (Full width) ]
+    [ FOOD GRID (2 Cột ảnh) ]
+    [ FORM ĐẶT BÀN ]
+    [ GOOGLE MAPS ]
+    [ FOOTER ]
+    ```
+* **Trả lời yêu cầu:**
+    * **Những gì bị ẩn?** Chữ số điện thoại ở Header (chỉ để lại Icon điện thoại để tiết kiệm không gian), thanh menu ngang (nếu có) ẩn vào nút Hamburger.
+    * **Form nằm đâu?** Nằm ngay dưới khối Lưới ảnh món ăn. Dàn toàn bộ 100% chiều ngang để người dùng dễ chạm và nhập liệu trên điện thoại.
+
+**Tablet (768px - 1023px)**
+* **Sơ đồ:**
+    ```text
+    [ HEADER: Logo | Số điện thoại ]
+    [ HERO IMAGE (Full width) ]
+    [ FOOD GRID (3 Cột ảnh) ]
+    [ FORM ĐẶT BÀN ] | [ GOOGLE MAPS ]  <-- Chia đôi 2 cột ngang nhau
+    [ FOOTER ]
+    ```
+* **Trả lời yêu cầu:**
+    * **Grid ảnh mấy cột?** 3 cột (2 hàng x 3 ảnh = 6 ảnh).
+    * **Bản đồ nằm đâu?** Nằm song song bên cạnh Form đặt bàn (chia màn hình 50-50). Tận dụng lợi thế chiều ngang của màn hình Tablet để giảm bớt độ dài trang khi cuộn.
+
+**Desktop (>= 1024px)**
+* **Sơ đồ:**
+    ```text
+    [ HEADER: Logo | Menu | Số điện thoại ]
+    [ HERO IMAGE (Full width) ]
+    -----------------------------------------
+    | MAIN CONTENT          | SIDEBAR       |
+    | - FOOD GRID (3 Cột)   | - FORM ĐẶT BÀN|
+    | - GOOGLE MAPS         |   (Sticky)    |
+    -----------------------------------------
+    [ FOOTER ]
+    ```
+* **Trả lời yêu cầu:**
+    * **Layout bao nhiêu cột?** Layout chính chia làm 2 cột bất đối xứng (Ví dụ: Main chiếm tỉ lệ 2 phần, Sidebar chiếm 1 phần).
+    * **Sidebar có không?** **Có.** Đưa Form đặt bàn sang bên phải làm một Sidebar dính (Sticky Sidebar). Khi người dùng cuộn xuống xem ảnh món ăn hoặc bản đồ, Form luôn trượt theo trên màn hình để kích thích hành vi đặt bàn ngay lập tức.
+
+### 2. CSS Skeleton (Grid + Mobile-First)
+
+Đoạn code khung (skeleton) dưới đây sử dụng CSS Grid và Media Queries theo chuẩn Mobile-First để xử lý layout đã phân tích ở trên:
+
+```css
+.restaurant-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.food-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+@media (min-width: 768px) {
+    .food-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .form-map-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .restaurant-layout {
+        grid-template-columns: 2fr 1fr;
+        grid-template-areas:
+            "header header"
+            "hero hero"
+            "main-content sidebar"
+            "footer footer";
+    }
+
+    .header { grid-area: header; }
+    .hero { grid-area: hero; }
+    .footer { grid-area: footer; }
+    
+    .main-content { grid-area: main-content; }
+    
+    .booking-form {
+        grid-area: sidebar;
+        position: sticky;
+        top: 20px;
+    }
+
+    .form-map-wrapper {
+        display: block; 
+    }
+}
+```
