@@ -88,3 +88,59 @@ var html = `
   <span>Giá: ${price}đ</span>
 </div>
 `;
+```
+
+# PHẦN C — SUY LUẬN (20 điểm)
+
+## Câu C1
+
+**1. Liệt kê các lỗi và cách sửa:**
+
+1. Sai toán tử so sánh: `if (giaSauGiam = 0)` đang sử dụng toán tử gán `=`, khiến kết quả luôn trả về giá trị được gán và chạy sai logic. Sửa thành: `if (giaSauGiam === 0)`.
+2. Sai kiểu dữ liệu đầu vào: `tinhGiaGiamGia("100000", 20)` truyền `giaBan` dưới dạng chuỗi (String). Dù JavaScript có thể ép kiểu tự động khi nhân chia, việc này vẫn tiềm ẩn lỗi ở các phép cộng. Sửa thành: Truyền kiểu số `tinhGiaGiamGia(100000, 20)`.
+3. Thiếu kiểm tra đầu vào (Validate): Hàm chỉ kiểm tra `phanTramGiam` mà không kiểm tra xem `giaBan` có hợp lệ (là số, lớn hơn hoặc bằng 0) hay không. Sửa thành: Bổ sung điều kiện kiểm tra biến `giaBan`.
+4. Xử lý lỗi sai cách: Return về một chuỗi `"Phần trăm giảm không hợp lệ"` khi gặp lỗi làm hỏng cấu trúc dữ liệu trả về của hàm (lẫn lộn giữa Number và String). Sửa thành: Dùng `throw new Error()`.
+5. Khai báo biến lỗi thời: Dùng `var giamGia` không chặt chẽ về scope. Sửa thành: Dùng `const` cho `giamGia` và `giaSauGiam` vì các biến này không bị gán lại.
+
+2. Giải thích lỗi "ẩn" liên quan đến `var` trong vòng lặp và cách sửa:
+* Nguyên nhân: Từ khóa `var` có phạm vi function scope, không có block scope. Do đó, toàn bộ vòng lặp chỉ dùng chung một biến bộ nhớ `i` duy nhất. Vòng lặp chạy rất nhanh và kết thúc khiến `i` nhảy lên giá trị `5`. Một giây sau, 5 hàm callback trong `setTimeout` mới đồng loạt chạy và gọi đến `i`, lúc này `i` đã là `5` nên màn hình sẽ in ra "Item 5" năm lần liên tục.
+* Cách sửa: Thay `var i = 0` bằng `let i = 0`. Vì `let` có block scope, mỗi lần lặp nó sẽ tạo ra một biến `i` hoàn toàn mới và độc lập, giúp `setTimeout` lưu giữ chính xác giá trị của vòng lặp đó.
+
+**3. Code hoàn chỉnh đã sửa:**
+
+```javascript
+function tinhGiaGiamGia(giaBan, phanTramGiam) {
+  if (typeof giaBan !== "number" || giaBan < 0) {
+    throw new Error("Giá bán không hợp lệ");
+  }
+
+  if (typeof phanTramGiam !== "number" || phanTramGiam < 0 || phanTramGiam > 100) {
+    throw new Error("Phần trăm giảm không hợp lệ");
+  }
+
+  const giamGia = (giaBan * phanTramGiam) / 100;
+  const giaSauGiam = giaBan - giamGia;
+
+  if (giaSauGiam === 0) {
+    console.log("Sản phẩm miễn phí!");
+  }
+
+  return giaSauGiam;
+}
+
+try {
+  const gia = tinhGiaGiamGia(100000, 20);
+  console.log("Giá sau giảm: " + gia + "đ");
+
+  const gia2 = tinhGiaGiamGia(50000, 110);
+  console.log("Giá: " + gia2);
+} catch (error) {
+  console.error("Lỗi:", error.message);
+}
+
+for (let i = 0; i < 5; i++) {
+  setTimeout(function () {
+    console.log("Item " + i);
+  }, 1000);
+}
+```
