@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="vi" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tailwind Landing Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
+</head>
+<body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100 font-sans transition-colors duration-300">
+
+    <nav class="flex justify-between items-center p-4 bg-white dark:bg-gray-800 shadow-md">
+        <div class="text-2xl font-bold text-blue-600 dark:text-blue-400">ShopTail</div>
+        <div class="hidden md:flex space-x-6">
+            <a href="#" class="hover:text-blue-500 dark:hover:text-blue-300">Trang chủ</a>
+            <a href="#" class="hover:text-blue-500 dark:hover:text-blue-300">Sản phẩm</a>
+            <a href="#" class="hover:text-blue-500 dark:hover:text-blue-300">Liên hệ</a>
+        </div>
+        <button class="md:hidden text-gray-600 dark:text-gray-300 focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+        </button>
+        <button onclick="document.documentElement.classList.toggle('dark')" class="hidden md:block px-4 py-2 bg-gray-200 dark:bg-gray-700 rounded-md hover:bg-gray-300 dark:hover:bg-gray-600">
+            Đổi giao diện
+        </button>
+    </nav>
+
+    <header class="w-full bg-blue-100 dark:bg-gray-800 py-20 text-center">
+        <h1 class="text-4xl md:text-5xl font-extrabold mb-4 dark:text-white">Chào mừng đến với ShopTail</h1>
+        <p class="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">Nơi mua sắm tuyệt vời nhất với hàng ngàn sản phẩm đa dạng và phong phú.</p>
+        <a href="#" class="px-8 py-3 bg-blue-600 text-white rounded-full font-semibold hover:bg-blue-700 transition shadow-lg hover:shadow-xl">Khám phá ngay</a>
+    </header>
+
+    <main class="container mx-auto px-4 py-12">
+        <h2 class="text-3xl font-bold text-center mb-10 dark:text-white">Sản phẩm nổi bật</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden">
+                <img src="https://picsum.photos/400/300?random=1" alt="SP1" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="font-bold text-lg mb-2 dark:text-white">Sản phẩm 1</h3>
+                    <p class="text-blue-600 dark:text-blue-400 font-bold">200.000đ</p>
+                    <button class="mt-4 w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition">Thêm vào giỏ</button>
+                </div>
+            </div>
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden">
+                <img src="https://picsum.photos/400/300?random=2" alt="SP2" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="font-bold text-lg mb-2 dark:text-white">Sản phẩm 2</h3>
+                    <p class="text-blue-600 dark:text-blue-400 font-bold">350.000đ</p>
+                    <button class="mt-4 w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition">Thêm vào giỏ</button>
+                </div>
+            </div>
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden">
+                <img src="https://picsum.photos/400/300?random=3" alt="SP3" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="font-bold text-lg mb-2 dark:text-white">Sản phẩm 3</h3>
+                    <p class="text-blue-600 dark:text-blue-400 font-bold">120.000đ</p>
+                    <button class="mt-4 w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition">Thêm vào giỏ</button>
+                </div>
+            </div>
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden">
+                <img src="https://picsum.photos/400/300?random=4" alt="SP4" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="font-bold text-lg mb-2 dark:text-white">Sản phẩm 4</h3>
+                    <p class="text-blue-600 dark:text-blue-400 font-bold">500.000đ</p>
+                    <button class="mt-4 w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition">Thêm vào giỏ</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-gray-800 dark:bg-black text-white py-10 mt-10">
+        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+                <h4 class="text-xl font-bold mb-4">ShopTail</h4>
+                <p class="text-gray-400">Mua sắm tiện lợi, nhanh chóng và an toàn nhất.</p>
+            </div>
+            <div>
+                <h4 class="text-xl font-bold mb-4">Liên kết</h4>
+                <ul class="space-y-2 text-gray-400">
+                    <li><a href="#" class="hover:text-white transition">Về chúng tôi</a></li>
+                    <li><a href="#" class="hover:text-white transition">Chính sách bảo mật</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-xl font-bold mb-4">Liên hệ</h4>
+                <p class="text-gray-400">Email: hotro@shoptail.vn</p>
+                <p class="text-gray-400">Hotline: 1900 9999</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

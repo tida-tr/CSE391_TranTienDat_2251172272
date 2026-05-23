@@ -165,3 +165,71 @@
   text-align: center;
 }
 ```
+
+
+# TRACK B — TAILWINDCSS
+
+# PHẦN A
+
+## Câu A1
+
+Giải nghĩa các class trong đoạn HTML:
+
+**Thẻ `<div>` ngoài cùng:**
+- `flex` -> `display: flex;`
+- `items-center` -> `align-items: center;` (Căn giữa các phần tử theo trục chéo/dọc)
+- `justify-between` -> `justify-content: space-between;` (Đẩy các phần tử dạt ra hai bên)
+- `p-4` -> `padding: 1rem;` (16px)
+- `bg-white` -> `background-color: #ffffff;` (Màu nền trắng)
+- `shadow-md` -> Bóng đổ cỡ vừa (`box-shadow`)
+- `rounded-lg` -> `border-radius: 0.5rem;` (Bo góc 8px)
+- `hover:shadow-xl` -> Bóng đổ tăng lên mức lớn (extra large) khi di chuột vào (`:hover`)
+- `transition-shadow` -> Thêm hiệu ứng chuyển đổi (`transition`) mượt mà cho thuộc tính box-shadow
+- `duration-300` -> `transition-duration: 300ms;` (Thời gian hiệu ứng diễn ra trong 0.3s)
+
+**Thẻ `<img>`:**
+- `w-16` -> `width: 4rem;` (64px)
+- `h-16` -> `height: 4rem;` (64px)
+- `rounded-full` -> `border-radius: 9999px;` (Bo góc tròn hoàn toàn)
+- `object-cover` -> `object-fit: cover;` (Ảnh cắt vừa khung hình mà không bị méo tỉ lệ)
+
+**Thẻ `<div>` bọc text:**
+- `ml-4` -> `margin-left: 1rem;` (16px)
+- `flex-1` -> `flex: 1 1 0%;` (Cho phép phần tử giãn ra chiếm toàn bộ không gian trống còn lại trong flex container)
+
+**Thẻ `<h3>` và `<p>`:**
+- `text-lg` -> `font-size: 1.125rem;` (Cỡ chữ lớn ~18px)
+- `font-semibold` -> `font-weight: 600;` (Chữ in đậm vừa)
+- `text-gray-800` -> Màu chữ xám rất đậm
+- `truncate` -> Tự động cắt chữ, ẩn phần thừa và thêm dấu `...` nếu đoạn văn bản quá dài (`overflow: hidden; text-overflow: ellipsis; white-space: nowrap;`)
+- `text-sm` -> `font-size: 0.875rem;` (Cỡ chữ nhỏ ~14px)
+- `text-gray-500` -> Màu chữ xám trung bình
+
+**Thẻ `<button>`:**
+- `px-4` -> `padding-left: 1rem; padding-right: 1rem;` (16px)
+- `py-2` -> `padding-top: 0.5rem; padding-bottom: 0.5rem;` (8px)
+- `bg-blue-500` -> Màu nền xanh dương mức độ 500
+- `text-white` -> `color: #ffffff;` (Chữ trắng)
+- `rounded-md` -> `border-radius: 0.375rem;` (Bo góc 6px)
+- `hover:bg-blue-600` -> Chuyển màu nền sang xanh dương đậm hơn (mức 600) khi di chuột vào
+- `focus:ring-2` -> Tạo một vòng viền (ring / box-shadow) dày 2px bao quanh nút khi nút đó được focus (được click hoặc tab tới)
+- `focus:ring-blue-300` -> Màu của viền focus ring là xanh dương nhạt (mức 300)
+
+## Câu A2
+
+**1. Giải thích prefix responsive:**
+Tailwind thiết kế theo hướng Mobile-first. Các prefix như `md:`, `lg:`, `xl:` tương ứng với các điểm ngắt (breakpoints) màn hình.
+- `md:` Áp dụng style từ màn hình tablet trở lên (min-width: 768px).
+- `lg:` Áp dụng style từ màn hình desktop trở lên (min-width: 1024px).
+- `xl:` Áp dụng style từ màn hình rộng trở lên (min-width: 1280px).
+- VD `md:grid-cols-2 lg:grid-cols-4` nghĩa là: Mặc định (ở mobile) sẽ hiển thị theo luồng bình thường. Khi màn hình đạt kích thước từ `md` trở lên, chia layout thành 2 cột (`grid-cols-2`). Khi màn hình tiếp tục lớn lên đạt kích thước `lg` trở lên, layout sẽ tự động chuyển thành 4 cột (`grid-cols-4`).
+
+**2. Giải thích state modifiers:**
+- `hover:` Áp dụng class khi người dùng dùng chuột trỏ/di lên trên phần tử.
+- `focus:` Áp dụng class khi phần tử được kích hoạt tiêu điểm (ví dụ: đang gõ trong ô input, hoặc dùng phím Tab di chuyển tới một button).
+- `active:` Áp dụng class ngay tại khoảnh khắc phần tử đang bị nhấn chuột giữ xuống.
+- `group-hover:` Khi thêm class `group` vào phần tử cha, bạn có thể dùng `group-hover:` ở các phần tử con. Nghĩa là: "Chỉ áp dụng style này cho phần tử con KHI người dùng di chuột vào phần tử cha".
+
+**3. Viết class Tailwind:**
+"Ẩn trên mobile, hiện dạng flex trên tablet trở lên" (tương đương `d-none d-md-flex` của Bootstrap): ->
+**`hidden md:flex`**
