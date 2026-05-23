@@ -233,3 +233,40 @@ Tailwind thiết kế theo hướng Mobile-first. Các prefix như `md:`, `lg:`,
 **3. Viết class Tailwind:**
 "Ẩn trên mobile, hiện dạng flex trên tablet trở lên" (tương đương `d-none d-md-flex` của Bootstrap): ->
 **`hidden md:flex`**
+
+# PHẦN C
+
+## Câu C1
+
+**Lấy ví dụ component: Product Card**
+
+So sánh giữa việc tự viết CSS thuần và dùng TailwindCSS:
+
+* **HTML file size (Kích thước file HTML):**
+    * **CSS thuần:** File HTML sẽ rất nhỏ gọn và sạch sẽ vì chỉ chứa các class tên mang tính ngữ nghĩa (ví dụ: `class="product-card"`, `class="card-title"`).
+    * **Tailwind HTML:** File HTML sẽ lớn hơn đáng kể và trông khá "rối" vì chứa hàng tá utility classes trên mỗi thẻ (ví dụ: `class="bg-white rounded-lg shadow-md p-4 flex flex-col hover:shadow-xl transition-all..."`).
+
+* **Maintainability (Khả năng bảo trì - Dễ đọc? Dễ sửa?):**
+    * **CSS thuần:** HTML dễ đọc, nhưng khi dự án lớn lên, file CSS sẽ phình to, dễ gặp tình trạng xung đột tên class (naming collision) hoặc CSS chết (dead code). Việc sửa đổi mất thời gian do phải nhảy qua lại giữa file HTML và CSS.
+    * **Tailwind:** HTML khó đọc (nhiều text), nhưng lại **cực kỳ dễ sửa**. Khi sửa đổi, bạn chỉ cần tác động vào HTML, không sợ gây ra hiệu ứng phụ (side-effects) làm hỏng UI ở các trang khác. Bạn cũng không cần phải vắt óc nghĩ cách đặt tên class (như chuẩn BEM).
+
+* **Reusability (Khả năng tái sử dụng):**
+    * **CSS thuần:** Tái sử dụng dễ dàng bằng cách gắn cùng một class name vào các khối HTML khác nhau.
+    * **Tailwind:** Thường tái sử dụng bằng cách đóng gói thành Component trong các framework JS (như React, Vue). Nếu chỉ dùng HTML thuần, Tailwind cung cấp directive `@apply` để gom các nhóm tiện ích lại thành một class CSS truyền thống. 
+        *Ví dụ:* `.btn { @apply bg-blue-500 text-white font-bold py-2 px-4 rounded; }`
+
+---
+
+## Câu C2
+
+**1. Tại sao Tailwind CSS file cuối cùng lại NHỎ HƠN Bootstrap CSS dù HTML dài hơn?**
+Bootstrap là một thư viện đóng gói sẵn (Pre-packaged). Theo mặc định, khi bạn nhúng Bootstrap, nó tải toàn bộ CSS của mọi component (carousel, modal, card...) và hệ thống grid, bất kể bạn có dùng chúng hay không. 
+Ngược lại, Tailwind sinh ra CSS dựa trên những gì bạn thực sự viết. File HTML dài hơn (thêm vài KB text) nhưng bù lại file CSS tải xuống lại cực nhỏ (chỉ chứa vài KB các class được dùng), giúp cải thiện tốc độ tải trang đáng kể.
+
+**2. Giải thích Tailwind PurgeCSS (Tailwind JIT). Nó loại bỏ gì?**
+* **Tailwind JIT (Just-In-Time) compiler:** Là công cụ biên dịch hoạt động theo thời gian thực. Khi bạn code, nó sẽ quét các file template của bạn (HTML, JS, JSX...), tìm các class của Tailwind được gọi tên.
+* **Nó loại bỏ gì?** Nó "purge" (loại bỏ) **100% các class CSS không được sử dụng** trong dự án. Nó không tạo ra một file CSS khổng lồ chứa mọi utility class của Tailwind, mà chỉ sinh ra chính xác đoạn code CSS cho những class mà bộ quét tìm thấy.
+
+**3. Khi nào KHÔNG nên dùng TailwindCSS? (2 tình huống cụ thể):**
+* **Tình huống 1: Cần làm nhanh nguyên mẫu (Prototype) hoặc trang Admin bởi Backend Dev không rành UI.** Lúc này, kéo thả các component có sẵn (đã được style đẹp, chuẩn UX) từ Bootstrap hoặc các UI Kit như Ant Design, MUI sẽ nhanh hơn nhiều so với việc tự ngồi xây dựng từng nút bấm, form nhập liệu bằng các utility classes của Tailwind.
+* **Tình huống 2: Tích hợp vào dự án legacy (dự án cũ) đã có sẵn hệ thống CSS/SCSS phức tạp.** Nếu dự án đã dùng Bootstrap hoặc có một hệ thống CSS thuần quy mô lớn, việc nhúng thêm Tailwind sẽ gây ra sự thiếu nhất quán trong code base, tăng nợ kỹ thuật (tech debt) và dễ gây xung đột phong cách thiết kế giữa các thành phần cũ - mới.
