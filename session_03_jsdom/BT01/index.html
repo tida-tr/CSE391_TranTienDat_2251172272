@@ -56,6 +56,63 @@
         </section>
     </main>
 
+    <div id="studentModal" class="custom-modal">
+        <div class="custom-modal-dialog card shadow border-0 rounded-3">
+            <header class="card-header bg-mint text-white py-3">
+                <h5 class="mb-0" id="modalTitle">Thêm sinh viên mới</h5>
+            </header>
+            <div class="card-body">
+                <form id="studentForm" novalidate>
+                    <input type="hidden" id="editIndex" value="-1">
+                    
+                    <div class="row g-3 mb-3">
+                        <div class="col-md-6">
+                            <label class="form-label text-muted small fw-bold">Mã sinh viên</label>
+                            <input placeholder="Nhập mã sinh viên" type="text" class="form-control shadow-none" id="studentId">
+                            <div class="invalid-feedback" id="error-studentId"></div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label text-muted small fw-bold">Họ và tên</label>
+                            <input placeholder="Nhập họ và tên" type="text" class="form-control shadow-none" id="fullName">
+                            <div class="invalid-feedback" id="error-fullName"></div>
+                        </div>
+                    </div>
+
+                    <div class="row g-3 mb-3">
+                        <div class="col-md-6">
+                            <label class="form-label text-muted small fw-bold">Ngày sinh</label>
+                            <input placeholder="Chọn ngày sinh" type="date" class="form-control shadow-none" id="dob">
+                            <div class="invalid-feedback" id="error-dob"></div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label text-muted small fw-bold">Lớp học</label>
+                            <input placeholder="Nhập tên lớp" type="text" class="form-control shadow-none" id="className">
+                            <div class="invalid-feedback" id="error-className"></div>
+                        </div>
+                    </div>
+
+                    <div class="row g-3 mb-4">
+                        <div class="col-md-6">
+                            <label class="form-label text-muted small fw-bold">Điểm trung bình</label>
+                            <input placeholder="Nhập điểm trung bình" type="number" step="0.1" class="form-control shadow-none" id="gpa">
+                            <div class="invalid-feedback" id="error-gpa"></div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label text-muted small fw-bold">Email</label>
+                            <input placeholder="Nhập email" type="email" class="form-control shadow-none" id="email">
+                            <div class="invalid-feedback" id="error-email"></div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-end gap-2">
+                        <button type="button" class="btn btn-light shadow-none" id="btnCancel">Hủy</button>
+                        <button type="submit" class="btn btn-mint shadow-none text-white">Lưu thông tin</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
