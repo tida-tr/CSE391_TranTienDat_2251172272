@@ -1,0 +1,103 @@
+:root {
+    --mint-main: #3eb489;
+    --mint-dark: #2c8c68;
+    --mint-light: #e6f7f1;
+    --mint-border: #bce5d5;
+}
+
+.bg-mint {
+    background-color: var(--mint-main) !important;
+}
+
+.bg-light-mint {
+    background-color: var(--mint-light) !important;
+}
+
+.text-mint {
+    color: var(--mint-main) !important;
+}
+
+.border-mint {
+    border-color: var(--mint-main) !important;
+}
+
+.btn-mint {
+    background-color: var(--mint-main);
+    border: 1px solid var(--mint-main);
+}
+
+.btn-mint:hover {
+    background-color: var(--mint-dark);
+    border-color: var(--mint-dark);
+}
+
+.btn-light-mint {
+    background-color: var(--mint-light);
+    color: var(--mint-dark);
+    border: none;
+}
+
+.btn-light-mint:hover {
+    background-color: #fff;
+    color: var(--mint-main);
+}
+
+.table th {
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid var(--mint-border) !important;
+}
+
+.table td {
+    color: #495057;
+    font-size: 0.95rem;
+    vertical-align: middle;
+}
+
+.table tbody tr:hover {
+    background-color: #fcfdfe;
+}
+
+.custom-modal {
+    display: none;
+    position: fixed;
+    z-index: 1050;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.custom-modal-dialog {
+    background-color: #fefefe;
+    margin: 5% auto;
+    width: 100%;
+    max-width: 600px;
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-30px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.form-control:focus {
+    border-color: var(--mint-main);
+    box-shadow: 0 0 0 0.25rem rgba(62, 180, 137, 0.25);
+}
+
+.form-check-input:checked {
+    background-color: var(--mint-main);
+    border-color: var(--mint-main);
+}
