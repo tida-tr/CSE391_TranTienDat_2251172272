@@ -1,0 +1,99 @@
+:root {
+    --mint-main: #3eb489;
+    --mint-dark: #2c8c68;
+    --mint-light: #e6f7f1;
+    --mint-border: #bce5d5;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.bg-mint {
+    background-color: var(--mint-main) !important;
+}
+
+.bg-light-mint {
+    background-color: var(--mint-light) !important;
+}
+
+.text-mint {
+    color: var(--mint-main) !important;
+}
+
+.border-mint {
+    border-color: var(--mint-main) !important;
+}
+
+.btn-mint {
+    background-color: var(--mint-main);
+    border: 1px solid var(--mint-main);
+}
+
+.btn-mint:hover {
+    background-color: var(--mint-dark);
+    border-color: var(--mint-dark);
+}
+
+.custom-modal {
+    display: none;
+    position: fixed;
+    z-index: 1050;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.custom-modal-dialog {
+    background-color: #fefefe;
+    margin: 5% auto;
+    width: 100%;
+    max-width: 500px;
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-30px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.task-card {
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: 1px solid #eaeaea;
+}
+
+.task-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .08) !important;
+}
+
+.task-completed {
+    background-color: #f8f9fa;
+    opacity: 0.8;
+}
+
+.task-completed .task-title {
+    text-decoration: line-through;
+    color: #6c757d;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--mint-main);
+    box-shadow: 0 0 0 0.25rem rgba(62, 180, 137, 0.25);
+}
+
+.form-check-input:checked {
+    background-color: var(--mint-main);
+    border-color: var(--mint-main);
+}
