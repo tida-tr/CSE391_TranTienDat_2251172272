@@ -1,7 +1,13 @@
+const btnOpenAddForm = document.getElementById('btnOpenAddForm');
+const btnCancel = document.getElementById('btnCancel');
+const taskModal = document.getElementById('taskModal');
+const taskForm = document.getElementById('taskForm');
+const taskList = document.getElementById('taskList');
+const alertBox = document.getElementById('alertBox');
+const modalTitle = document.getElementById('modalTitle');
 const totalTasksEl = document.getElementById('totalTasks');
 const completedTasksEl = document.getElementById('completedTasks');
 const incompleteTasksEl = document.getElementById('incompleteTasks');
-const taskList = document.getElementById('taskList');
 
 let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
@@ -57,15 +63,6 @@ function renderTasks() {
     updateStatistics();
 }
 
-renderTasks();
-
-const btnOpenAddForm = document.getElementById('btnOpenAddForm');
-const btnCancel = document.getElementById('btnCancel');
-const taskModal = document.getElementById('taskModal');
-const taskForm = document.getElementById('taskForm');
-const alertBox = document.getElementById('alertBox');
-const modalTitle = document.getElementById('modalTitle');
-
 function showAlert(msg, type = 'success') {
     alertBox.className = `alert alert-${type} shadow-sm`;
     alertBox.innerText = msg;
@@ -81,6 +78,40 @@ function resetForm() {
     taskForm.reset();
     document.getElementById('editIndex').value = '-1';
     modalTitle.innerText = 'Thêm công việc mới';
+    clearErrors();
+}
+
+function showError(inputId, message) {
+    const input = document.getElementById(inputId);
+    input.classList.add('is-invalid');
+    document.getElementById(`error-${inputId}`).innerText = message;
+}
+
+function clearErrors() {
+    const inputs = document.querySelectorAll('.form-control, .form-select');
+    inputs.forEach(input => input.classList.remove('is-invalid'));
+    document.querySelectorAll('.invalid-feedback').forEach(div => div.innerText = '');
+}
+
+function validateForm() {
+    let isValid = true;
+    clearErrors();
+
+    const title = document.getElementById('taskTitle').value.trim();
+    const desc = document.getElementById('taskDesc').value.trim();
+    const deadline = document.getElementById('taskDeadline').value;
+    const priority = document.getElementById('taskPriority').value;
+
+    if (!title) { showError('taskTitle', 'Tiêu đề không được để trống.'); isValid = false; }
+    else if (title.length < 3) { showError('taskTitle', 'Tiêu đề phải từ 3 ký tự trở lên.'); isValid = false; }
+
+    if (!desc) { showError('taskDesc', 'Vui lòng nhập mô tả ngắn.'); isValid = false; }
+
+    if (!deadline) { showError('taskDeadline', 'Vui lòng chọn hạn hoàn thành.'); isValid = false; }
+
+    if (!priority) { showError('taskPriority', 'Vui lòng chọn mức ưu tiên.'); isValid = false; }
+
+    return isValid;
 }
 
 btnOpenAddForm.addEventListener('click', () => { resetForm(); toggleModal(true); });
@@ -88,6 +119,7 @@ btnCancel.addEventListener('click', () => { toggleModal(false); });
 
 taskForm.addEventListener('submit', (e) => {
     e.preventDefault();
+    if (!validateForm()) return;
 
     const editIndex = document.getElementById('editIndex').value;
     const newTask = {
@@ -110,3 +142,41 @@ taskForm.addEventListener('submit', (e) => {
     renderTasks();
     toggleModal(false);
 });
+
+taskList.addEventListener('click', (e) => {
+    if (e.target.classList.contains('btn-delete')) {
+        const index = e.target.getAttribute('data-index');
+        if (confirm('Bạn có chắc chắn muốn xóa công việc này?')) {
+            tasks.splice(index, 1);
+            saveTasks();
+            renderTasks();
+            showAlert('Đã xóa công việc!', 'warning');
+        }
+    }
+
+    if (e.target.classList.contains('btn-edit')) {
+        const index = e.target.getAttribute('data-index');
+        const t = tasks[index];
+        clearErrors();
+
+        document.getElementById('taskTitle').value = t.title;
+        document.getElementById('taskDesc').value = t.desc;
+        document.getElementById('taskDeadline').value = t.deadline;
+        document.getElementById('taskPriority').value = t.priority;
+        document.getElementById('editIndex').value = index;
+
+        modalTitle.innerText = 'Cập nhật công việc';
+        toggleModal(true);
+    }
+});
+
+taskList.addEventListener('change', (e) => {
+    if (e.target.classList.contains('btn-toggle-status')) {
+        const index = e.target.getAttribute('data-index');
+        tasks[index].isCompleted = e.target.checked;
+        saveTasks();
+        renderTasks();
+    }
+});
+
+renderTasks();
