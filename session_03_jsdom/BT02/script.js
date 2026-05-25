@@ -58,3 +58,55 @@ function renderTasks() {
 }
 
 renderTasks();
+
+const btnOpenAddForm = document.getElementById('btnOpenAddForm');
+const btnCancel = document.getElementById('btnCancel');
+const taskModal = document.getElementById('taskModal');
+const taskForm = document.getElementById('taskForm');
+const alertBox = document.getElementById('alertBox');
+const modalTitle = document.getElementById('modalTitle');
+
+function showAlert(msg, type = 'success') {
+    alertBox.className = `alert alert-${type} shadow-sm`;
+    alertBox.innerText = msg;
+    alertBox.classList.remove('d-none');
+    setTimeout(() => alertBox.classList.add('d-none'), 3000);
+}
+
+function toggleModal(show) {
+    taskModal.style.display = show ? 'block' : 'none';
+}
+
+function resetForm() {
+    taskForm.reset();
+    document.getElementById('editIndex').value = '-1';
+    modalTitle.innerText = 'Thêm công việc mới';
+}
+
+btnOpenAddForm.addEventListener('click', () => { resetForm(); toggleModal(true); });
+btnCancel.addEventListener('click', () => { toggleModal(false); });
+
+taskForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const editIndex = document.getElementById('editIndex').value;
+    const newTask = {
+        title: document.getElementById('taskTitle').value.trim(),
+        desc: document.getElementById('taskDesc').value.trim(),
+        deadline: document.getElementById('taskDeadline').value,
+        priority: document.getElementById('taskPriority').value,
+        isCompleted: editIndex !== '-1' ? tasks[editIndex].isCompleted : false
+    };
+
+    if (editIndex === '-1') {
+        tasks.push(newTask);
+        showAlert('Đã thêm công việc thành công!');
+    } else {
+        tasks[editIndex] = newTask;
+        showAlert('Đã cập nhật công việc!');
+    }
+
+    saveTasks();
+    renderTasks();
+    toggleModal(false);
+});
