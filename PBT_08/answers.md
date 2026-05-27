@@ -114,3 +114,21 @@ console.log(product.price);   // 25990000 (gốc KHÔNG đổi)
 console.log(product.specs.ram); // 16
 ```
 
+# PHẦN B
+
+## CÂU B1
+
+![alt text](./screenshots/B1_1.png)
+![alt text](./screenshots/B1_2.png)
+![alt text](./screenshots/B1_3.png)
+
+## CAU B2
+
+![alt text](./screenshots/B2.png)
+
+## CAU B3
+
+![alt text](./screenshots/B3.png)
+
+
+# PHẦN C
