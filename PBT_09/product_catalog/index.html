@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Product Catalog</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <header class="top-bar">
+            <h2>Shop</h2>
+            <div class="actions">
+                <button id="theme-toggle">🌓</button>
+                <div class="cart-icon">🛒 <span id="cart-badge">0</span></div>
+            </div>
+        </header>
+
+        <div class="toolbar">
+            <input type="text" id="search-input" placeholder="Tìm kiếm sản phẩm...">
+            
+            <div id="category-filters">
+                <button class="cat-btn active" data-cat="all">All</button>
+                <button class="cat-btn" data-cat="phone">Phone</button>
+                <button class="cat-btn" data-cat="laptop">Laptop</button>
+                <button class="cat-btn" data-cat="tablet">Tablet</button>
+                <button class="cat-btn" data-cat="accessory">Accessory</button>
+            </div>
+
+            <select id="sort-select">
+                <option value="default">Sắp xếp theo</option>
+                <option value="price-asc">Giá tăng</option>
+                <option value="price-desc">Giá giảm</option>
+                <option value="name-asc">Tên A-Z</option>
+                <option value="rating-desc">Đánh giá cao nhất</option>
+            </select>
+        </div>
+
+        <div id="catalog"></div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

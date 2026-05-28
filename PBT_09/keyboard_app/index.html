@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyboard Shortcuts App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Keyboard & Accessibility</h1>
+        <p>Nhấn <kbd>Ctrl</kbd> + <kbd>K</kbd> để mở Command Palette.</p>
+        <button id="open-gallery-btn" aria-label="Mở thư viện ảnh">Mở Gallery Ảnh</button>
+    </header>
+
+    <div id="gallery-modal" class="modal hidden" role="dialog" aria-modal="true" aria-label="Trình xem ảnh">
+        <div class="modal-content gallery-content">
+            <button id="close-gallery-btn" class="close-btn" aria-label="Đóng thư viện ảnh">✕</button>
+            <div class="img-container">
+                <img id="main-img" src="" alt="Ảnh đang hiển thị" aria-live="polite">
+                <div id="play-status" aria-live="polite"></div>
+            </div>
+            <p class="help-text">Mũi tên ← →: Chuyển ảnh | 1-9: Nhảy đến ảnh | Space: Play/Pause | Esc: Đóng</p>
+        </div>
+    </div>
+
+    <div id="cmd-palette" class="modal hidden" role="dialog" aria-modal="true" aria-label="Command Palette">
+        <div class="cmd-content">
+            <input type="text" id="cmd-input" placeholder="Gõ lệnh tìm kiếm (VD: dark, gallery, home)..." aria-label="Ô tìm kiếm lệnh">
+            <ul id="cmd-list" role="listbox" aria-label="Danh sách lệnh"></ul>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
