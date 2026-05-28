@@ -70,3 +70,88 @@ Output thứ tự sẽ là: BUTTON -> INNER -> OUTER
 2. Output khi uncomment e.stopPropagation():
 Hàm stopPropagation() sẽ ngăn chặn sự kiện nổi bọt lên các phần tử cha. Do đó, sự kiện chỉ được xử lý tại chính phần tử được click (là button)  
 Output sẽ là: BUTTON
+
+# PHẦN C
+
+## Câu C1
+
+**7 Lỗi và cách sửa:**
+1. Lỗi Event Name: `addEventListener("onclick", ...)` -> Sai cú pháp, sửa thành `"click"`.
+2. Gán DOM Element: `countDisplay = count` -> Cố tình gán giá trị cho một hằng số (`const`) chứa DOM Object. Sửa thành `countDisplay.textContent = count`.
+3. Lỗi xoá HTML: `historyList.innerHTML = null` -> Sẽ bị ép kiểu thành chuỗi `"null"`. Sửa thành `historyList.innerHTML = ""`.
+4. Gọi hàm sai: `item.remove;` -> Thiếu dấu ngoặc tròn. Sửa thành `item.remove()`.
+5. Kiểu dữ liệu: `localStorage.getItem` trả về String -> Khi cộng chuỗi sẽ bị lỗi, phải ép kiểu thành số `parseInt(...)`.
+6. Lỗi Data Restore: Sự kiện `load` quên render lại `historyList` từ localStorage.
+7. Lỗi Event: Các `<li>` phục hồi từ localStorage mất event xoá ban đầu -> Dùng **Event Delegation** trên thẻ cha `#history`.
+
+**Code Refactor:**
+```javascript
+const countDisplay = document.querySelector(".count");
+const historyList = document.getElementById("history");
+let count = 0;
+
+// Fix Lỗi 7: Event Delegation
+historyList.addEventListener("click", (e) => {
+    if (e.target.tagName === "LI") e.target.remove();
+});
+
+// Fix Lỗi 1: "onclick" -> "click"
+document.querySelector("#incrementBtn").addEventListener("click", function() {
+    count++; 
+    countDisplay.textContent = count; // Fix Lỗi 2
+    const li = document.createElement("li");
+    li.textContent = "Count changed to " + count;
+    historyList.append(li);
+});
+
+document.querySelector("#decrementBtn").addEventListener("click", function() { 
+    count--; 
+    countDisplay.textContent = count;
+});
+
+document.querySelector("#resetBtn").addEventListener("click", () => {
+    count = 0; 
+    countDisplay.textContent = count; 
+    historyList.innerHTML = ""; // Fix Lỗi 3
+});
+
+document.querySelector("#clearHistory").addEventListener("click", () => {
+    const items = historyList.querySelectorAll("li");
+    items.forEach(item => {
+        item.remove(); // Fix Lỗi 4
+    });
+});
+
+window.addEventListener("beforeunload", () => {
+    localStorage.setItem("count", count);
+    localStorage.setItem("history", historyList.innerHTML);
+});
+
+window.addEventListener("load", () => {
+    count = parseInt(localStorage.getItem("count")) || 0; // Fix Lỗi 5
+    countDisplay.textContent = count;
+    
+    // Fix Lỗi 6
+    historyList.innerHTML = localStorage.getItem("history") || ""; 
+});
+```
+
+## Câu C2
+**1. Giải thích:**
+* Bad Practice: Bind 1000 events sẽ cực kỳ tốn bộ nhớ do trình duyệt phải tạo và lưu trữ 1000 function objects. Hơn nữa, nếu DOM cập nhật động thêm element mới, element đó sẽ không có event.
+* Event Delegation: Giải quyết bằng cách bind 1 event duy nhất lên phần tử cha bọc ngoài. Tận dụng cơ chế Event Bubbling để bắt sự kiện từ các thẻ con thông qua e.target.
+
+**2. Refactor với DocumentFragment**
+```js
+const fragment = document.createDocumentFragment();
+
+for (let i = 0; i < 1000; i++) {
+    const div = document.createElement("div");
+    div.textContent = `Item ${i}`;
+    fragment.appendChild(div); // KHÔNG gây reflow
+}
+
+document.body.appendChild(fragment); // Chỉ 1 lần reflow duy nhất!
+```
+
+**Tại sao nhanh hơn:** DocumentFragment hoạt động như một DOM ảo nằm ngoài cây DOM thật. Việc thêm 1000 thẻ vào fragment không bắt trình duyệt tính toán lại bố cục (layout/reflow) hay vẽ lại (repaint) liên tục. Ta chỉ tốn chi phí tài nguyên để reflow đúng 1 lần khi đưa toàn bộ fragment đó vào giao diện chính (document.body).
