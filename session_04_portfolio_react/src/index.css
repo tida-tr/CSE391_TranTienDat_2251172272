@@ -1,0 +1,106 @@
+:root {
+  --color-primary: #6366f1;
+  --color-secondary: #8b5cf6;
+  --color-dark: #1e293b;
+  --color-light: #f8fafc;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: #334155;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: white;
+  padding: 1rem 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: var(--color-dark);
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--color-dark);
+}
+
+.hero {
+  padding: 5rem 0;
+  text-align: center;
+  background: var(--color-light);
+}
+
+.highlight {
+  color: var(--color-primary);
+}
+
+.cta-button {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.8rem 2rem;
+  background: var(--color-primary);
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+section {
+  padding: 4rem 0;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.skills-grid {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.skill-item {
+  padding: 0.5rem 1rem;
+  background: var(--color-light);
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+
+.footer {
+  text-align: center;
+  padding: 2rem 0;
+  background: var(--color-dark);
+  color: white;
+  margin-top: 2rem;
+}
