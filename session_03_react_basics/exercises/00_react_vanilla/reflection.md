@@ -1,0 +1,4 @@
+1. Ở Phần A, mỗi lần thêm/xóa/toggle 1 todo, cần gọi 2 hàm: Hàm thực thi hành động (addTodo, deleteTodo, toggleTodo) và sau đó bắt buộc gọi thêm hàm `renderTodos()` để in lại giao diện ra DOM.
+2. Ở Phần B, khi `setTodos(...)` chạy, React tự động ghi nhận sự thay đổi của state, đối chiếu Virtual DOM và tiến hành re-render lại UI những phần có dữ liệu thay đổi một cách tự động.
+3. Nếu có 50 project, dùng React quản lý an toàn hơn. Vanilla JS chọc thẳng vào DOM và ghi đè toàn bộ `innerHTML` mỗi khi có thay đổi sẽ rất dễ sinh lỗi, khó bảo trì và hiệu suất kém. React quản lý state tập trung giúp UI luôn đồng bộ với dữ liệu.
+4. Áp dụng cho Portfolio: Dùng `useState` để lưu danh sách projects. Dùng `.filter()` để lọc danh sách theo category nếu người dùng ấn chọn. Cuối cùng dùng `.map()` để duyệt mảng và trả về component `<ProjectCard />`, truyền thông tin từng dự án xuống qua props.
