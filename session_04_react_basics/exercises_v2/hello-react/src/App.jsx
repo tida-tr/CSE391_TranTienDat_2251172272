@@ -1,18 +1,15 @@
-import LifecycleDemo from "./components/LifecycleDemo";
-import BadCounter from "./components/BadCounter";
-import GoodCounter from "./components/GoodCounter";
-import FlowDemo from "./components/FlowDemo";
+import SimpleVariables from "./components/SimpleVariables";
+import ConditionalDemo from "./components/ConditionalDemo";
+import ListRendering from "./components/ListRendering";
 
 function App() {
   return (
     <div>
-      <LifecycleDemo />
+      <SimpleVariables />
       <hr />
-      <BadCounter />
+      <ConditionalDemo />
       <hr />
-      <GoodCounter />
-      <hr />
-      <FlowDemo />
+      <ListRendering />
     </div>
   );
 }
